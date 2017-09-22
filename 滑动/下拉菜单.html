@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script src="js/jquery-1.12.3.min.js"></script>
+  <script>
+	$(document).ready(function(){
+		$('.box>ul>li').children('ul').hide();
+		$('.box>ul>li').click(function(){
+			$(this).children('ul').slideToggle('fast',function(){
+				if($(this).is(':hidden')){
+					$(this).siblings('h1').children('span').css('transform','rotate(0deg)')
+				}
+			});
+			
+			$(this).find('span').css('transform','rotate(90deg)');
+			$(this).siblings('li').children('h1').children('span').css('transform','rotate(0deg)')
+		})
+	})
+  </script>
+  <style>
+	body,div,ul,li,h1,a{
+		margin:0;padding:0;
+	}
+	li{
+		list-style:none;
+	}
+	a{
+		text-decoration:none;
+	}
+	.box{
+		width:150px;border:1px solid #666;margin:100px auto;
+	}
+	.box>ul>li{
+		width:150px;background:#ccc;position:relative;
+	}
+    .box>ul>li>h1{
+		display:block;width:150px;height:40px;font:16px/35px "微软雅黑";
+		color:#fff;
+	}
+	.box>ul>li>h1>span{
+		width:12px;height:20px;float:right; transition:0.4s; 
+	}
+	.box>ul>li>h1>a{
+		color:#fff;
+	}
+	.content>li{
+		width:130px;height:30px;font:14px/30px "微软雅黑";color:green;
+		padding-left:20px;background:#fff;border-bottom:1px solid #ccc;
+	}
+  </style>
+ </head>
+ <body>
+	<div class="box">
+		<ul>
+			<li>
+			    <h1>
+					<a href="javascript:">我的好友</a>
+					<span>></span>
+				</h1>
+				<ul class="content">
+					<li>好友一</li>
+					<li>好友二</li>
+					<li>好友三</li>
+				</ul>
+			</li>
+			<li>
+				<h1>
+					<a href="javascript:">我的同事</a>
+					<span>></span>
+				</h1>
+				<ul class="content">
+					<li>同事一</li>
+					<li>同事二</li>
+					<li>同事三</li>
+				</ul>
+			</li>
+			<li>
+				<h1>
+					<a href="javascript:">我的亲人</a>
+					<span>></span>
+				</h1>
+				<ul class="content">
+					<li>亲人一</li>
+					<li>亲人二</li>
+					<li>亲人三</li>
+				</ul>
+			</li>
+	</div>
+ </body>
+</html>

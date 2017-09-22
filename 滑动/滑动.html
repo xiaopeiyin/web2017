@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script src="js/jquery-1.12.3.min.js"></script>
+  <style>
+	*{
+		margin:0;padding:0;
+	}
+	li{
+		list-style:none;
+	}
+	img{
+		border:none;
+	}
+	#box{
+		width:920px;height:200px;border:2px solid gray;box-shadow:5px 5px 10px gray;
+		position:relative;margin:100px auto;
+	}
+	#box>span{
+		width:60px;height:200px;font:60px/200px "微软雅黑";text-align:center;background:#ddd;
+		position:absolute;top:0;font-weight:bold;cursor:pointer;
+	}
+	.prev{
+		left:0;
+	}
+	.next{
+		right:0;
+	}
+	#box>div{
+		width:800px;height:200px;margin:0 auto;overflow:hidden;
+	}
+	#box>div>ul{
+		height:200px;
+	}
+	#box>div>ul>li{
+		width:200px;height:200px;float:left;
+	}
+    #box>div>ul>li>img{
+		width:200px;height:200px;
+	}
+  </style>
+  <script>
+	$(document).ready(function(){
+		var liLen = $('#box ul li').length;		
+		var liWidth = $('#box ul li').width();
+		var ulWidth = liLen*liWidth;
+		$('#box ul').css('width',ulWidth+'px');
+
+		$('.next').click(function(){
+			$('#box ul').animate({'marginLeft':'-200px'},1000,function(){
+				$(this).css('marginLeft',0).find('li:first').appendTo('#box ul')
+			});
+		})
+		$('.prev').click(function(){
+			$('#box ul').css('marginLeft','-200px').find('li:last').prependTo('#box ul');
+			$('#box ul').animate({'marginLeft':0},1000);
+		})
+       
+	})
+  </script>
+ </head>
+ <body>
+	<div id="box">
+		<span class="prev">&lt;</span>
+		<span class="next">&gt;</span>
+		<div>
+			<ul>
+				<li><img src="img/g.jpg" /></li>
+				<li><img src="img/h.jpg" /></li>
+				<li><img src="img/i.jpg" /></li>
+				<li><img src="img/j.jpg" /></li>
+				<li><img src="img/k.jpg" /></li>
+				<li><img src="img/l.jpg" /></li>
+				<li><img src="img/m.jpg" /></li>
+				<li><img src="img/n.jpg" /></li>
+			</ul>
+		</div>
+	</div>
+ </body>
+</html>
